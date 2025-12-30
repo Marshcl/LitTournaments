@@ -68,4 +68,3 @@ jobs:
       - name: Skip release (already exists)
         if: steps.check_release.outputs.exists == 'true'
         run: echo "Release ${{ steps.get_version.outputs.VERSION }} already exists, skipping..."
-
