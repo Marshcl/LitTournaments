@@ -56,11 +56,8 @@ public class PointManager {
             });
         } else if (tournamentPlayer.isLoading()) {
             Player player = Bukkit.getPlayer(uuid);
-            if (player != null) {
-                LangFile langFile = ConfigUtils.get(LangFile.class);
-                ChatUtils.sendMessage(player, langFile.getStillLoading());
-            }
         }
     }
 
 }
+
