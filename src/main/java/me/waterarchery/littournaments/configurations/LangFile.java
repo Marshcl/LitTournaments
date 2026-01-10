@@ -26,13 +26,9 @@ public class LangFile extends OkaeriConfig {
     private String successfullyRegisteredOnJoin = "<white> <#CCFFEE>You successfully registered to a tournament!";
     private String successfullyRegistered = "<white> <#CCFFEE>You successfully registered to this tournament!";
     private String successfullyLeaved = "<white> <#CCFFEE>You successfully left the tournament!";
-	//private String stillLoading = "<white> <#CCFFEE>Your data is <#47D4FF>still loading <#CCFFEE>please wait for <#47D4FF>your tournaments!";
-    private String stillLoading = "";
     private String filesReloaded = "<white> <#47D4FF>All files reloaded successfully!";
-    private String leaderboardUpdated = "";
+    private String leaderboardUpdated = "<#CCFFEE>Leaderboard <#47D4FF>updated!";
     private String notActiveTournament = "<white> <red>This tournament is not active!";
-    //private String loadingLeaderboard =  "<white> <#47D4FF>Loading leaderboard! It can take several seconds.";
-    private String loadingLeaderboard =  "";
     private String tournamentEndAdmin = "<white> <#CCFFEE>You have <#47D4FF>successfully finished <#CCFFEE>the tournament. It may take a <#47D4FF>few seconds to <#CCFFEE>take effect.";
     private String tournamentStartAdmin = "<white> <#CCFFEE>You have <#47D4FF>successfully started <#CCFFEE>the tournament. It may take a <#47D4FF>few seconds to <#CCFFEE>take effect.";
     private String alreadyActiveTournament = "<white>  <#CCFFEE>This tournament is already <#47D4FF>active!";
