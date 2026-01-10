@@ -50,7 +50,7 @@ public class TournamentCommand extends BaseCommand {
         Tournament tournament = tournamentManager.getTournament(tournamentName);
 
         if (!player.hasPermission("littournaments.player.join." + tournamentName) && !player.hasPermission("littournaments.player.join.*")) {
-            ChatUtils.sendPrefixedMessage(player, langFile.getNoPermission());
+            ChatUtils.sendMessage(player, langFile.getNoPermission());
             SoundUtils.sendSoundRaw(player, soundsFile.getNoPermission());
             return;
         }
@@ -59,14 +59,14 @@ public class TournamentCommand extends BaseCommand {
             JoinChecker joinChecker = tournament.getJoinChecker();
             if (!tournamentPlayer.isRegistered(tournament) && joinChecker.canJoin(player.getUniqueId())) {
                 tournamentPlayer.join(tournament);
-                ChatUtils.sendPrefixedMessage(player, langFile.getSuccessfullyRegistered());
+                ChatUtils.sendMessage(player, langFile.getSuccessfullyRegistered());
                 SoundUtils.sendSoundRaw(player, soundsFile.getSuccessfullyJoined());
             } else {
-                ChatUtils.sendPrefixedMessage(player, langFile.getAlreadyJoined());
+                ChatUtils.sendMessage(player, langFile.getAlreadyJoined());
                 SoundUtils.sendSoundRaw(player, soundsFile.getAlreadyJoined());
             }
         } else {
-            ChatUtils.sendPrefixedMessage(player, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(player, langFile.getNoTournamentWithName());
         }
     }
 
@@ -78,7 +78,7 @@ public class TournamentCommand extends BaseCommand {
         Tournament tournament = tournamentManager.getTournament(tournamentName);
 
         if (!player.hasPermission("littournaments.player.leave." + tournamentName) && !player.hasPermission("littournaments.player.leave.*")) {
-            ChatUtils.sendPrefixedMessage(player, langFile.getNoPermission());
+            ChatUtils.sendMessage(player, langFile.getNoPermission());
             SoundUtils.sendSoundRaw(player, soundsFile.getNoPermission());
             return;
         }
@@ -86,12 +86,12 @@ public class TournamentCommand extends BaseCommand {
         if (tournament != null) {
             if (tournamentPlayer.isRegistered(tournament)) {
                 tournamentPlayer.leave(tournament);
-                ChatUtils.sendPrefixedMessage(player, langFile.getSuccessfullyLeaved());
+                ChatUtils.sendMessage(player, langFile.getSuccessfullyLeaved());
             } else {
-                ChatUtils.sendPrefixedMessage(player, langFile.getJoinFirst());
+                ChatUtils.sendMessage(player, langFile.getJoinFirst());
             }
         } else {
-            ChatUtils.sendPrefixedMessage(player, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(player, langFile.getNoTournamentWithName());
         }
     }
 
@@ -105,7 +105,7 @@ public class TournamentCommand extends BaseCommand {
             LeaderboardGUI leaderboardGUI = new LeaderboardGUI(player, tournament, true);
             leaderboardGUI.openAsync(player);
         } else {
-            ChatUtils.sendPrefixedMessage(player, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(player, langFile.getNoTournamentWithName());
         }
     }
 
@@ -122,7 +122,7 @@ public class TournamentCommand extends BaseCommand {
         TournamentDatabase database = TournamentDatabase.getInstance();
         database.load(tournaments);
 
-        ChatUtils.sendPrefixedMessage(sender, langFile.getFilesReloaded());
+        ChatUtils.sendMessage(sender, langFile.getFilesReloaded());
     }
 
     @Command("end")
@@ -133,13 +133,13 @@ public class TournamentCommand extends BaseCommand {
 
         if (tournament != null) {
             if (tournament.isActive()) {
-                ChatUtils.sendPrefixedMessage(sender, langFile.getTournamentEndAdmin());
+                ChatUtils.sendMessage(sender, langFile.getTournamentEndAdmin());
                 tournament.finishTournament();
             } else {
-                ChatUtils.sendPrefixedMessage(sender, langFile.getNotActiveTournament());
+                ChatUtils.sendMessage(sender, langFile.getNotActiveTournament());
             }
         } else {
-            ChatUtils.sendPrefixedMessage(sender, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(sender, langFile.getNoTournamentWithName());
         }
     }
 
@@ -151,13 +151,13 @@ public class TournamentCommand extends BaseCommand {
 
         if (tournament != null) {
             if (!tournament.isActive()) {
-                ChatUtils.sendPrefixedMessage(sender, langFile.getTournamentStartAdmin());
+                ChatUtils.sendMessage(sender, langFile.getTournamentStartAdmin());
                 tournament.startTournament();
             } else {
-                ChatUtils.sendPrefixedMessage(sender, langFile.getAlreadyActiveTournament());
+                ChatUtils.sendMessage(sender, langFile.getAlreadyActiveTournament());
             }
         } else {
-            ChatUtils.sendPrefixedMessage(sender, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(sender, langFile.getNoTournamentWithName());
         }
     }
 
@@ -171,12 +171,12 @@ public class TournamentCommand extends BaseCommand {
             if (tournament.isActive()) {
                 TournamentDatabase database = TournamentDatabase.getInstance();
                 database.reloadLeaderboard(tournament);
-                ChatUtils.sendPrefixedMessage(sender, langFile.getLeaderboardUpdated());
+                ChatUtils.sendMessage(sender, langFile.getLeaderboardUpdated());
             } else {
-                ChatUtils.sendPrefixedMessage(sender, langFile.getAlreadyActiveTournament());
+                ChatUtils.sendMessage(sender, langFile.getAlreadyActiveTournament());
             }
         } else {
-            ChatUtils.sendPrefixedMessage(sender, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(sender, langFile.getNoTournamentWithName());
         }
     }
 
@@ -188,12 +188,12 @@ public class TournamentCommand extends BaseCommand {
         Tournament tournament = tournamentManager.getTournament(tournamentName);
 
         if (tournament == null) {
-            ChatUtils.sendPrefixedMessage(sender, langFile.getNoTournamentWithName());
+            ChatUtils.sendMessage(sender, langFile.getNoTournamentWithName());
             return;
         }
 
         if (!tournament.isActive()) {
-            ChatUtils.sendPrefixedMessage(sender, langFile.getAlreadyActiveTournament());
+            ChatUtils.sendMessage(sender, langFile.getAlreadyActiveTournament());
             return;
         }
 
