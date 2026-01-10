@@ -82,7 +82,7 @@ public class PlayerManager {
                     if (joinChecker.isAutoJoinEnabled() && joinChecker.canJoin(uuid)) {
                         if (joinChecker.isMessageOnAutoJoin()) {
                             LangFile langFile = ConfigUtils.get(LangFile.class);
-                            ChatUtils.sendPrefixedMessage(bukkitPlayer, langFile.getSuccessfullyRegisteredOnJoin());
+                            ChatUtils.sendMessage(bukkitPlayer, langFile.getSuccessfullyRegisteredOnJoin());
                         }
                         player.join(tournament);
                     }

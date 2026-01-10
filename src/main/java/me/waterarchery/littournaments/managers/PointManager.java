@@ -58,7 +58,7 @@ public class PointManager {
             Player player = Bukkit.getPlayer(uuid);
             if (player != null) {
                 LangFile langFile = ConfigUtils.get(LangFile.class);
-                ChatUtils.sendPrefixedMessage(player, langFile.getStillLoading());
+                ChatUtils.sendMessage(player, langFile.getStillLoading());
             }
         }
     }
