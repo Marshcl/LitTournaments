@@ -29,7 +29,7 @@ public class ConfigFile extends OkaeriConfig {
     private boolean mainServer = true;
 
     @Comment("Amount of players that listed in tournament leaderboard")
-    private int leaderboardLimit = 32;
+    private int leaderboardLimit = 100;
 
     @Comment({"Its in seconds.", "Its the time between finish and start time between tournaments."})
     private int waitTimeBetweenTournaments = 60;
