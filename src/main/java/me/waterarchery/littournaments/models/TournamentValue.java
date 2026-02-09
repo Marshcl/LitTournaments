@@ -39,12 +39,6 @@ public class TournamentValue {
 
     @Transient
     public String getName() {
-        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
-        return offlinePlayer.getName();
-    }
-
-    @Transient
-    public String getName() {
         if (name == null) {
             OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
             name = offlinePlayer.getName();
